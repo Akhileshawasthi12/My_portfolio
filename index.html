@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akhilesh Awasthi</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #1a0b0b;
+      background-color: #f8f9fa;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #ff6b6b;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ff6b6b;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav-links li {
+      margin: 0 20px;
+    }
+
+    .nav-links a {
+      font-weight: 500;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    .nav-links a:hover {
+      background-color: #ff6b6b;
+      color: white;
+    }
+
+    .hero-section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 40px 40px;
+      flex-wrap: wrap;
+      gap: 40px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      color: #ff6b6b;
+    }
+
+    .hero-content p {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background-color: #ff6b6b;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      background-color: #e94e4e;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-links {
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      margin-right: 15px;
+      font-size: 24px;
+      color: #555;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: #ff6b6b;
+    }
+
+    .profile-pic {
+      width: 300px;
+      height: 300px;
+      border-radius: 1000%;
+      object-fit: cover;
+      border: 4px solid #ff6b6b;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .about-section,
+    .skills-section,
+    .projects-section,
+    .contact-section {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .about-section {
+      background-color: #fff;
+    }
+
+    .about-section h2,
+    .skills-section h2,
+    .projects-section h2,
+    .contact-section h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .about-section p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 18px;
+      color: #555;
+    }
+
+    .skills-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      animation: slideUp 1.2s ease-in-out both;
+    }
+
+    .skill {
+      background-color: #f1f2f6;
+      padding: 30px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #ff6b6b;
+    }
+
+    .skill ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skill ul li {
+      font-size: 16px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .projects-section {
+      background-color: #f1f2f6;
+    }
+
+    .project-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .project-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .project-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 16px;
+      color: #666;
+    }
+
+    .contact-section {
+      background-color: #333;
+      color: white;
+    }
+
+    .contact-section p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      background-color: #444;
+      color: white;
+    }
+
+    .contact-form button {
+      background-color: #ff6b6b;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 18px;
+    }
+
+    .contact-form button:hover {
+      background-color: #e94e4e;
+    }
+
+    footer {
+      background-color: #222;
+      color: #bbb;
+      padding: 20px;
+      text-align: center;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(60px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .skills-container,
+      .project-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Akhilesh Awasthi</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <h1>Hello, I'm <span class="highlight">Akhilesh Awasthi</span></h1>
+      <p>Web Developer | UI/UX Enthusiast | Problem Solver</p>
+      <a href="#projects" class="btn">View My Work</a>
+
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/akhilesh-awasthi-640967331" target="_blank" aria-label="LinkedIn">🔗</a>
+        <a href="https://github.com/Akhileshawasthi12" target="_blank" aria-label="GitHub">🐱</a>
+        <a href="https://instagram.com/itz_akhilesh_112" target="_blank" aria-label="Instagram">📸</a>
+      </div>
+    </div>
+    <img src="profile-picture.jpg" alt="Profile Picture" class="profile-pic" />
+  </section>
+
+  <section id="about" class="about-section">
+    <h2>About Me</h2>
+    <p>I’m a passionate web developer with a love for creating beautiful, functional websites that provide excellent user experiences. My focus is on building responsive and accessible designs.</p>
+  </section>
+
+  <section id="skills" class="skills-section">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+      <div class="skill">
+        <h3>Frontend</h3>
+        <ul>
+          <li>HTML5</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>Bootstrap</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h3>Backend</h3>
+        <ul>
+          <li>C</li>
+          <li>C++</li>
+          <li>Java</li>
+          <li>Python</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects-section">
+    <h2>Projects</h2>
+    <div class="project-cards">
+      <div class="project-card">
+        <img src="images/project1.png" alt="Project 1">
+        <h3>Project One</h3>
+        <p>A responsive Cryptocurrency Dashboard built using React and CSS animations.</p>
+      </div>
+      <div class="project-card">
+        <img src="images/project2.png" alt="Project 2">
+        <h3>Project Two</h3>
+        <p>An interactive Quiz app with drag-and-drop functionality and filtering.</p>
+      </div>
+      <div class="project-card">
+        <img src="images/project3.png" alt="Project 3">
+        <h3>Project Three</h3>
+        <p>A personal finance tracker with real-time charts using Chart.js and local storage.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <h2>Contact Me</h2>
+    <p>I'm always open to new opportunities and collaborations. Get in touch below:</p>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>@ 2025 Akhilesh Awasthi | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    document.querySelector('.contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Message Sent Successfully!');
+    });
+  </script>
+</body>
+</html>
